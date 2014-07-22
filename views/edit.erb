@@ -1,0 +1,6 @@
+<h3>Edit Message</h3>
+<form method = "post" action = "/messages/<%= message["id"] %>">
+  <input type="hidden" name= "_method" value="patch">
+  <textarea><%= message["message"] %></textarea>
+  <button>Update</button>
+</form>
