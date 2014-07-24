@@ -10,7 +10,7 @@
   <li><%= message["message"] %></li>
   <li><a href="/messages/<%= message["id"] %>/edit">Edit</a></li>
 
-  <form method="post" action="/messages/<%= message_hash["id"] %>">
+  <form method="post" action="/messages/<%= message["id"] %>">
     <input type="hidden" name="_method" value="delete"/>
     <input type="submit" value="Delete Message"/>
   </form>
