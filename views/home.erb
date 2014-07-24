@@ -4,13 +4,15 @@
   <button>Submit</button>
 </form>
 
-<ul>
- <% messages.each do |message| %>
+<% messages.each do |message| %>
 
 
   <li><%= message["message"] %></li>
-  <li><a href = "/messages/<%= message["id"] %>/edit">Edit</a></li>
+  <li><a href="/messages/<%= message["id"] %>/edit">Edit</a></li>
+
+  <form method="post" action="/messages/<%= message_hash["id"] %>">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Delete Message"/>
+  </form>
 
 <% end %>
-
-</ul>

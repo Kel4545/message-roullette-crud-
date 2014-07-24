@@ -34,7 +34,12 @@ class App < Sinatra::Application
 
   patch "/messages/:id" do
     @database_connection.sql("UPDATE messages set message = '#{params[:message]}'
-where id = #{params[:id]}")
+    where id = #{params[:id]}")
   redirect "/"
+  end
+
+  delete "/messages/:id" do
+    @database_connection.sql("DELETE FROM messages where id =#{params[:id]}")
+    redirect "/"
   end
 end
