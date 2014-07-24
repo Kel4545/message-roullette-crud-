@@ -27,6 +27,10 @@ class App < Sinatra::Application
     redirect "/"
   end
 
+  get "/messages/:id/comments/new" do
+    message = @database_connection.sql("SELECT * FROM messages WHERE id = #{params[:id]}").first
+    erb :comment, :locals => {:message => message}
+  end
 
   get "/messages/:id/edit" do
   message = @database_connection.sql("SELECT * from messages where id=#{params[:id]}").first
